@@ -93,28 +93,27 @@ The repo is organized into the 4 sections, with accompanying code in the `src/em
 
 * Notebook: [notebooks/ambient_agent.ipynb](/notebooks/ambient_agent.ipynb)
 
-### Building an ReAct agent 
+### Section 1. Building an ReAct agent 
 
 * Code: [src/email_assistant/email_assistant.py](/src/email_assistant/email_assistant.py)
 
 ![overview-agent](notebooks/img/overview_agent.png)
 
-This notebook shows how to build the email assistant, combining an [email triage step](https://langchain-ai.github.io/langgraph/tutorials/workflows/) with an agent that handles the email response. You can see the linked code for the full implementation in `src/email_assistant/email_assistant.py`.
+This section shows how to build the email assistant, combining an [email triage step](https://langchain-ai.github.io/langgraph/tutorials/workflows/) with an agent that handles the email response. You can see the linked code for the full implementation in `src/email_assistant/email_assistant.py`.
 
 ![Screenshot 2025-04-04 at 4 06 18 PM](notebooks/img/studio.png)
 
 
-
-### Human-in-the-loop 
+### Section 2. Human-in-the-loop 
 * Code: [src/email_assistant/email_assistant_hitl.py](/src/email_assistant/email_assistant_hitl.py)
 
 ![overview-hitl](notebooks/img/overview_hitl.png)
 
-This notebooks shows how to add human-in-the-loop (HITL), allowing the user to review specific tool calls (e.g., send email, schedule meeting). For this, we use [Agent Inbox](https://github.com/langchain-ai/agent-inbox) as an interface for human in the loop. You can see the linked code for the full implementation in [src/email_assistant/email_assistant_hitl.py](/src/email_assistant/email_assistant_hitl.py).
+This section shows how to add human-in-the-loop (HITL), allowing the user to review specific tool calls (e.g., send email, schedule meeting). For this, we use [Agent Inbox](https://github.com/langchain-ai/agent-inbox) as an interface for human in the loop. You can see the linked code for the full implementation in [src/email_assistant/email_assistant_hitl.py](/src/email_assistant/email_assistant_hitl.py).
 
 ![Agent Inbox showing email threads](notebooks/img/agent-inbox.png)
 
-### Memory  
+### Section 3. Memory  
 * Code: [src/email_assistant/email_assistant_hitl_memory.py](/src/email_assistant/email_assistant_hitl_memory.py)
 
 This notebook shows how to add memory to the email assistant, allowing it to learn from user feedback and adapt to preferences over time. The memory-enabled assistant ([email_assistant_hitl_memory.py](/src/email_assistant/email_assistant_hitl_memory.py)) uses the [LangGraph Store](https://langchain-ai.github.io/langgraph/concepts/memory/#long-term-memory) to persist memories. You can see the linked code for the full implementation in [src/email_assistant/email_assistant_hitl_memory.py](/src/email_assistant/email_assistant_hitl_memory.py).
@@ -124,7 +123,7 @@ This notebook shows how to add memory to the email assistant, allowing it to lea
 
 
 
-### [Optional for Training] Evaluation 
+### [Optional for Training] Section 4. Evaluation 
 * Notebook: [notebooks/evaluation.ipynb](/notebooks/evaluation.ipynb)
 ![overview-eval](notebooks/img/overview_eval.png)
 
