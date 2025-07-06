@@ -2,8 +2,8 @@
 Learn about the fundamentals of LangGraph through building an ambient email agent
 
 
-LangGraph 101 
-Welcome to LangGraph 101!
+Ambient Agent 101
+Welcome to Ambient Agent 101!
 
 Introduction
 In this session, you will learn about the fundamentals of LangGraph through one of our notebooks. It builds up to an ["ambient"](https://blog.langchain.dev/introducing-ambient-agents/) agent that can manage your email with connection to the Gmail API. It's grouped into 4 sections, each with a notebook and accompanying code in the `src/email_assistant` directory. These section build from the basics of agents, to agent evaluation, to human-in-the-loop, and finally to memory. These all come together in an agent that you can deploy, and the principles can be applied to other agents across a wide range of tasks. 
@@ -17,9 +17,10 @@ This is a condensed version of LangChain Academy, and is intended to be run in a
 
 ## Environment Setup 
 
-Clone the LangGraph 101 repo
+### Clone the Ambient Agent 101 repo
+```
 git clone https://github.com/langchain-ai/langgraph-101.git
-Navigate to setup.md and follow instructions there! If you run into issues with setting up the python environment or acquiring the necessary API keys due to any restrictions (ex. corporate policy), contact your LangChain representative and we'll find a work-around!
+```
 
 ### Python Version
 
