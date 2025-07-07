@@ -1,6 +1,4 @@
 from typing import List, Any
-import io
-import sys
 import json
 import html2text
 
@@ -62,11 +60,10 @@ def format_gmail_markdown(subject, author, to, email_thread, email_id=None):
 ---
 """
 
-def format_for_display(state, tool_call):
+def format_for_display(tool_call):
     """Format content for display in Agent Inbox
     
     Args:
-        state: Current message state
         tool_call: The tool call to format
     """
     # Initialize empty display
@@ -247,22 +244,7 @@ def extract_tool_calls(messages: List[Any]) -> List[str]:
 
 def format_messages_string(messages: List[Any]) -> str:
     """Format messages into a single string for analysis."""
-    # Redirect stdout to capture output
-    old_stdout = sys.stdout
-    new_stdout = io.StringIO()
-    sys.stdout = new_stdout
-    
-    # Run the pretty_print calls
-    for m in messages:
-        m.pretty_print()
-    
-    # Get the captured output
-    output = new_stdout.getvalue()
-    
-    # Restore original stdout
-    sys.stdout = old_stdout
-    
-    return output
+    return '\n'.join(message.pretty_repr() for message in messages)
 
 def show_graph(graph, xray=False):
     """Display a LangGraph mermaid diagram with fallback rendering.

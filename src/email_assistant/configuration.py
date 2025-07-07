@@ -8,8 +8,7 @@ from langchain_core.runnables import RunnableConfig
 
 @dataclass(kw_only=True)
 class Configuration:
-    """Main configuration class."""
-    # llm = 
+    """Placeholder for configuration."""
 
     @classmethod
     def from_runnable_config(

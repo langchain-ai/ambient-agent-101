@@ -650,6 +650,8 @@ def get_calendar_events(dates: List[str]) -> str:
     """
     if not GMAIL_API_AVAILABLE:
         logger.info("Gmail API not available, simulating calendar check")
+        # Fallback: Return mock calendar data for demo/testing purposes
+        # In production, this should use the real Google Calendar API
         result = "Calendar events:\n\n"
         for date in dates:
             result += f"Events for {date}:\n"
@@ -727,6 +729,8 @@ def get_calendar_events(dates: List[str]) -> str:
                 busy_slots.sort(key=lambda x: x[0])
                 
                 # Define working hours (9 AM to 5 PM)
+                # Note: Working hours are currently hardcoded for simplicity
+                # In production, this could be made configurable per user/organization
                 work_start = datetime(
                     year=int(year), 
                     month=int(month), 

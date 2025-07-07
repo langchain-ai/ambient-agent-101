@@ -1,6 +1,4 @@
-import os
 from typing import Literal
-from pydantic import BaseModel
 
 from langchain.chat_models import init_chat_model
 
@@ -8,12 +6,12 @@ from langgraph.graph import StateGraph, START, END
 from langgraph.store.base import BaseStore
 from langgraph.types import interrupt, Command
 
-from src.email_assistant.tools import get_tools, get_tools_by_name
-from src.email_assistant.tools.gmail.prompt_templates import GMAIL_TOOLS_PROMPT
-from src.email_assistant.tools.gmail.gmail_tools import mark_as_read
-from src.email_assistant.prompts import triage_system_prompt, triage_user_prompt, agent_system_prompt_hitl_memory, default_triage_instructions, default_background, default_response_preferences, default_cal_preferences
-from src.email_assistant.schemas import State, RouterSchema, StateInput
-from src.email_assistant.utils import parse_gmail, format_for_display, format_gmail_markdown
+from email_assistant.tools import get_tools, get_tools_by_name
+from email_assistant.tools.gmail.prompt_templates import GMAIL_TOOLS_PROMPT
+from email_assistant.tools.gmail.gmail_tools import mark_as_read
+from email_assistant.prompts import triage_system_prompt, triage_user_prompt, agent_system_prompt_hitl_memory, default_triage_instructions, default_background, default_response_preferences, default_cal_preferences, MEMORY_UPDATE_INSTRUCTIONS, MEMORY_UPDATE_INSTRUCTIONS_REINFORCEMENT
+from email_assistant.schemas import State, RouterSchema, StateInput, UserPreferences
+from email_assistant.utils import parse_gmail, format_for_display, format_gmail_markdown
 from dotenv import load_dotenv
 
 load_dotenv(".env")
@@ -57,78 +55,6 @@ def get_memory(store, namespace, default_content=None):
     # Return the default content
     return user_preferences 
 
-class UserPreferences(BaseModel):
-    """User preferences."""
-    preferences: str
-    justification: str
-
-MEMORY_UPDATE_INSTRUCTIONS = """
-# Role and Objective
-You are a memory profile manager for an email assistant agent that selectively updates user preferences based on feedback messages from human-in-the-loop interactions with the email assistant.
-
-# Instructions
-- NEVER overwrite the entire memory profile
-- ONLY make targeted additions of new information
-- ONLY update specific facts that are directly contradicted by feedback messages
-- PRESERVE all other existing information in the profile
-- Format the profile consistently with the original style
-- Generate the profile as a string
-
-# Reasoning Steps
-1. Analyze the current memory profile structure and content
-2. Review feedback messages from human-in-the-loop interactions
-3. Extract relevant user preferences from these feedback messages (such as edits to emails/calendar invites, explicit feedback on assistant performance, user decisions to ignore certain emails)
-4. Compare new information against existing profile
-5. Identify only specific facts to add or update
-6. Preserve all other existing information
-7. Output the complete updated profile
-
-# Example
-<memory_profile>
-RESPOND:
-- wife
-- specific questions
-- system admin notifications
-NOTIFY: 
-- meeting invites
-IGNORE:
-- marketing emails
-- company-wide announcements
-- messages meant for other teams
-</memory_profile>
-
-<user_messages>
-"The assistant shouldn't have responded to that system admin notification."
-</user_messages>
-
-<updated_profile>
-RESPOND:
-- wife
-- specific questions
-NOTIFY: 
-- meeting invites
-- system admin notifications
-IGNORE:
-- marketing emails
-- company-wide announcements
-- messages meant for other teams
-</updated_profile>
-
-# Process current profile for {namespace}
-<memory_profile>
-{current_profile}
-</memory_profile>
-
-Think step by step about what specific feedback is being provided and what specific information should be added or updated in the profile while preserving everything else."""
-
-MEMORY_UPDATE_INSTRUCTIONS_REINFORCEMENT = """
-Remember:
-- NEVER overwrite the entire profile
-- ONLY make targeted additions or changes based on explicit feedback
-- PRESERVE all existing information not directly contradicted
-- Output the complete updated profile as a string
-"""
-
 def update_memory(store, namespace, messages):
     """Update memory profile in the store.
     
@@ -145,11 +71,10 @@ def update_memory(store, namespace, messages):
     result = llm.invoke(
         [
             {"role": "system", "content": MEMORY_UPDATE_INSTRUCTIONS.format(current_profile=user_preferences.value, namespace=namespace)},
-            {"role": "user", "content": f"Think carefully and update the memory profile based upon these user messages:"}
         ] + messages
     )
     # Save the updated memory to the store
-    store.put(namespace, "user_preferences", result.preferences)
+    store.put(namespace, "user_preferences", result.user_preferences)
 
 # Nodes 
 def triage_router(state: State, store: BaseStore) -> Command[Literal["triage_interrupt_handler", "response_agent", "__end__"]]:
@@ -352,7 +277,7 @@ def interrupt_handler(state: State, store: BaseStore) -> Command[Literal["llm_ca
         original_email_markdown = format_gmail_markdown(subject, author, to, email_thread, email_id)
         
         # Format tool call for display and prepend the original email
-        tool_display = format_for_display(state, tool_call)
+        tool_display = format_for_display(tool_call)
         description = original_email_markdown + tool_display
 
         # Configure what actions are allowed in Agent Inbox

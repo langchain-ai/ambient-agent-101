@@ -1,7 +1,7 @@
-from typing import Dict, List, Callable, Any
+from typing import Dict, List, Callable, Any, Optional
 from langchain_core.tools import BaseTool
 
-def get_tools(tool_names: List[str] = None, include_gmail: bool = False) -> List[BaseTool]:
+def get_tools(tool_names: Optional[List[str]] = None, include_gmail: bool = False) -> List[BaseTool]:
     """Get specified tools or all tools if tool_names is None.
     
     Args:
@@ -12,8 +12,8 @@ def get_tools(tool_names: List[str] = None, include_gmail: bool = False) -> List
         List of tool objects
     """
     # Import default tools
-    from src.email_assistant.tools.default.email_tools import write_email, Done, Question
-    from src.email_assistant.tools.default.calendar_tools import schedule_meeting, check_calendar_availability
+    from email_assistant.tools.default.email_tools import write_email, Done, Question
+    from email_assistant.tools.default.calendar_tools import schedule_meeting, check_calendar_availability
     
     # Base tools dictionary
     all_tools = {
@@ -27,7 +27,7 @@ def get_tools(tool_names: List[str] = None, include_gmail: bool = False) -> List
     # Add Gmail tools if requested
     if include_gmail:
         try:
-            from src.email_assistant.tools.gmail.gmail_tools import (
+            from email_assistant.tools.gmail.gmail_tools import (
                 fetch_emails_tool,
                 send_email_tool,
                 check_calendar_tool,
@@ -49,7 +49,7 @@ def get_tools(tool_names: List[str] = None, include_gmail: bool = False) -> List
     
     return [all_tools[name] for name in tool_names if name in all_tools]
 
-def get_tools_by_name(tools: List[BaseTool] = None) -> Dict[str, BaseTool]:
+def get_tools_by_name(tools: Optional[List[BaseTool]] = None) -> Dict[str, BaseTool]:
     """Get a dictionary of tools mapped by name."""
     if tools is None:
         tools = get_tools()
