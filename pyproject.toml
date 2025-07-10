@@ -7,6 +7,8 @@ dependencies = [
     "langchain>=0.3.9",
     "langchain-core>=0.3.59",
     "langchain-openai",
+    "langchain-anthropic",
+    "langchain-aws",
     "langgraph>=0.4.2",
     "langsmith[pytest]>=0.3.4",
     "pandas",

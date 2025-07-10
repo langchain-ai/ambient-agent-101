@@ -1,6 +1,16 @@
 from typing import List, Any
 import json
 import html2text
+from langchain_openai import ChatOpenAI, AzureChatOpenAI
+from langchain_anthropic import ChatAnthropic
+from langchain_aws import ChatBedrock
+
+# NOTE: Configure the LLM that you want to use
+# llm = ChatOpenAI(model="gpt-4.1")
+# llm = ChatAnthropic(model="claude-3-7-sonnet-20250219") 
+llm = ChatBedrock(model_id="us.anthropic.claude-3-7-sonnet-20250219-v1:0")
+# llm = AzureChatOpenAI(azure_deployment="gpt-4o", api_version="2025-04-01-preview")
+
 
 def format_email_markdown(subject, author, to, email_thread, email_id=None):
     """Format email details into a nicely formatted markdown string for display

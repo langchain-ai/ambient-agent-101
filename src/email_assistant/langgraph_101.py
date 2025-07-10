@@ -3,6 +3,9 @@ from langchain.chat_models import init_chat_model
 from langchain.tools import tool
 from langgraph.graph import MessagesState, StateGraph, END, START
 from dotenv import load_dotenv
+
+from email_assistant.utils import llm
+
 load_dotenv(".env")
 
 @tool
