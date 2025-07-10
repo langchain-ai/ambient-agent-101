@@ -40,20 +40,15 @@ python3 --version
 cp .env.example .env
 ```
 
-* Edit the `.env` file with the following:
-```shell
-LANGSMITH_API_KEY=your_langsmith_api_key
-LANGSMITH_TRACING=true
-LANGSMITH_PROJECT="interrupt-workshop"
-OPENAI_API_KEY=your_openai_api_key
-```
+### Alternative Models Instructions 
 
-* You can also set the environment variables in your terminal:
-```shell
-export LANGSMITH_API_KEY=your_langsmith_api_key
-export LANGSMITH_TRACING=true
-export OPENAI_API_KEY=your_openai_api_key
-```
+If you are using alternative models (e.g., Anthropic, Bedrock, AzureOpenAI) instead of OpenAI, there are a few things you need to do.
+
+* Set necessary environment variables in the `.env` file.
+
+* Navigate to [utils.py](/src/email_assistant/utils.py), and uncomment the code for the model that you are looking to run. 
+
+
 
 ### Package Installation
 
