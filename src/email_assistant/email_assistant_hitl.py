@@ -19,7 +19,7 @@ tools_by_name = get_tools_by_name(tools)
 llm_router = llm.with_structured_output(RouterSchema) 
 
 # Initialize the LLM, enforcing tool use (of any available tools) for agent
-llm_with_tools = llm.bind_tools(tools, tool_choice="required")
+llm_with_tools = llm.bind_tools(tools, tool_choice="any")
 
 # Nodes 
 def triage_router(state: State) -> Command[Literal["triage_interrupt_handler", "response_agent", "__end__"]]:

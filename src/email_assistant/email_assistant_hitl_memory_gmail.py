@@ -22,7 +22,7 @@ tools_by_name = get_tools_by_name(tools)
 llm_router = llm.with_structured_output(RouterSchema) 
 
 # Initialize the LLM, enforcing tool use (of any available tools) for agent
-llm_with_tools = llm.bind_tools(tools, tool_choice="required")
+llm_with_tools = llm.bind_tools(tools, tool_choice="any")
 
 def get_memory(store, namespace, default_content=None):
     """Get memory from the store or initialize with default if it doesn't exist.
