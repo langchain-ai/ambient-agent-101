@@ -12,7 +12,7 @@ This is a condensed version of LangChain Academy, and is intended to be run in a
 
 ## Environment Setup 
 
-### Clone the Ambient Agent 101 repo 
+### Clone the Ambient Agent 101 repo in "azure-openai-certificate" branch. 
 
 ### Python Version
 
