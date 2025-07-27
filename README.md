@@ -12,10 +12,7 @@ This is a condensed version of LangChain Academy, and is intended to be run in a
 
 ## Environment Setup 
 
-### Clone the Ambient Agent 101 repo
-```
-git clone https://github.com/langchain-ai/langgraph-101.git
-```
+### Clone the Ambient Agent 101 repo 
 
 ### Python Version
 
@@ -28,7 +25,7 @@ python3 --version
 
 ### API Keys
 
-* If you don't have an OpenAI API key, you can sign up [here](https://openai.com/index/openai-api/).
+* Obtain a model API key, either Azure OpenAI, OpenAI, Anthropic, or Bedrock.
 * Sign up for LangSmith [here](https://smith.langchain.com/).
 * Generate a LangSmith API key.
 
@@ -42,7 +39,7 @@ cp .env.example .env
 
 ### Alternative Models Instructions 
 
-If you are using alternative models (e.g., Anthropic, Bedrock, AzureOpenAI) instead of OpenAI, there are a few things you need to do.
+If you are using alternative models other than AzureOpenAI (e.g., Anthropic, Bedrock, OpenAI), there are a few things you need to do.
 
 * Set necessary environment variables in the `.env` file.
 

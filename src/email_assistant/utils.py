@@ -4,13 +4,22 @@ import html2text
 from langchain_openai import ChatOpenAI, AzureChatOpenAI
 from langchain_anthropic import ChatAnthropic
 from langchain_aws import ChatBedrock
+import httpx
+import os
 
 # NOTE: Configure the LLM that you want to use
-llm = ChatOpenAI(model="gpt-4.1")
+# llm = ChatOpenAI(model="gpt-4.1")
 # llm = ChatAnthropic(model="claude-3-7-sonnet-20250219") 
 # llm = ChatBedrock(model_id="us.anthropic.claude-3-7-sonnet-20250219-v1:0")
 # llm = AzureChatOpenAI(azure_deployment="gpt-4o", api_version="2025-04-01-preview")
 
+certificate_path = os.environ.get("CERTIFICATE_PATH", None)  # Default path to the CA certificate
+http_client_agent = httpx.Client(verify=certificate_path)
+llm = AzureChatOpenAI(
+    azure_deployment="gpt-4o",  # or your deployment
+    api_version="2024-12-01-preview",  # or your api version
+    http_client=http_client_agent
+)
 
 def format_email_markdown(subject, author, to, email_thread, email_id=None):
     """Format email details into a nicely formatted markdown string for display
