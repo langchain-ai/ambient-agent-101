@@ -149,7 +149,7 @@ When handling emails, follow these steps:
 
 # Default background information 
 default_background = """ 
-I'm Lance, a software engineer at LangChain.
+I'm Catherine, a deployed engineer at LangChain.
 """
 
 # Default response preferences 

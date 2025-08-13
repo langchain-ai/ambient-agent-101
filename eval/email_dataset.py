@@ -35,9 +35,9 @@ System Admin Team"""
 # Dataset examples
 email_input_1 = {
     "author": "Alice Smith <alice.smith@company.com>",
-    "to": "Lance Martin <lance@company.com>",
+    "to": "Catherine Qiao <catherine@company.com>",
     "subject": "Quick question about API documentation",
-    "email_thread": """Hi Lance,
+    "email_thread": """Hi Catherine,
 
 I was reviewing the API documentation for the new authentication service and noticed a few endpoints seem to be missing from the specs. Could you help clarify if this was intentional or if we should update the docs?
 
@@ -51,9 +51,9 @@ Alice""",
 
 email_input_2 = {
     "author": "Marketing Team <marketing@company.com>",
-    "to": "Lance Martin <lance@company.com>",
+    "to": "Catherine Qiao <catherine@company.com>",
     "subject": "New Company Newsletter Available",
-    "email_thread": """Hello Lance,
+    "email_thread": """Hello Catherine,
 
 The latest edition of our company newsletter is now available on the intranet. This month features articles on our Q2 results, upcoming team building activities, and employee spotlights.
 
@@ -65,9 +65,9 @@ Marketing Team""",
 
 email_input_3 = {
     "author": "System Admin <sysadmin@company.com>",
-    "to": "Lance Martin <lance@company.com>",
+    "to": "Catherine Qiao <catherine@company.com>",
     "subject": "Scheduled maintenance - database downtime",
-    "email_thread": """Hi Lance,
+    "email_thread": """Hi Catherine,
 
 This is a reminder that we'll be performing scheduled maintenance on the production database tonight from 2AM to 4AM EST. During this time, all database services will be unavailable.
 
@@ -79,9 +79,9 @@ System Admin Team""",
 
 email_input_4 = {
     "author": "Project Manager <pm@client.com>",
-    "to": "Lance Martin <lance@company.com>",
+    "to": "Catherine Qiao <catherine@company.com>",
     "subject": "Tax season let's schedule call",
-    "email_thread": """Lance,
+    "email_thread": """Catherine,
 
 It's tax season again, and I wanted to schedule a call to discuss your tax planning strategies for this year. I have some suggestions that could potentially save you money.
 
@@ -93,9 +93,9 @@ Project Manager""",
 
 email_input_5 = {
     "author": "HR Department <hr@company.com>",
-    "to": "Lance Martin <lance@company.com>",
+    "to": "LCatherine Qiao <catherine@company.com>",
     "subject": "Reminder: Submit your expense reports",
-    "email_thread": """Hello Lance,
+    "email_thread": """Hello Catherine,
 
 This is a friendly reminder that all expense reports for the previous month need to be submitted by this Friday. Please make sure to include all receipts and proper documentation.
 
@@ -107,9 +107,9 @@ HR Department""",
 
 email_input_6 = {
     "author": "Conference Organizer <events@techconf.com>",
-    "to": "Lance Martin <lance@company.com>",
+    "to": "Catherine Qiao <catherine@company.com>",
     "subject": "Do you want to attend this conference?",
-    "email_thread": """Hi Lance,
+    "email_thread": """Hi Catherine,
 
 We're reaching out to invite you to TechConf 2025, happening May 15-17 in San Francisco. 
 
@@ -123,9 +123,9 @@ Conference Organizers""",
 
 email_input_7 = {
     "author": "Sarah Johnson <sarah.j@partner.com>",
-    "to": "Lance Martin <lance@company.com>",
+    "to": " Catherine Qiao <catherine@company.com>",
     "subject": "Can you review these docs before submission?",
-    "email_thread": """Lance,
+    "email_thread": """Catherine,
 
 I've attached the final version of our proposal for the Henderson project. Could you please review the technical specifications section (pages 15-20) before we submit it to the client on Friday?
 
@@ -137,9 +137,9 @@ Sarah""",
 
 email_input_8 = {
     "author": "Community Pool <info@cityrecreation.org>",
-    "to": "Lance Martin <lance@company.com>",
+    "to": "Catherine Qiao <catherine@company.com>",
     "subject": "Sign up daughter for swimming class",
-    "email_thread": """Dear Lance,
+    "email_thread": """Dear Catherine,
 
 Summer swimming registration is now open! Based on your daughter's participation last year, we wanted to let you know that intermediate level classes are available on Mondays and Wednesdays at 4PM or Tuesdays and Thursdays at 5PM.
 
@@ -153,7 +153,7 @@ City Recreation Department""",
 
 email_input_9 = {
     "author": "GitHub <notifications@github.com>",
-    "to": "Lance Martin <lance@company.com>",
+    "to": "Catherine Qiao <catherine@company.com>",
     "subject": "PR #42: Comment from alex-dev",
     "email_thread": """Hey there!
 
@@ -171,9 +171,9 @@ Reply to this email directly, or view it on GitHub
 
 email_input_10 = {
     "author": "Team Lead <teamlead@company.com>",
-    "to": "Lance Martin <lance@company.com>",
+    "to": "Catherine Qiao <catherine@company.com>",
     "subject": "Quarterly planning meeting",
-    "email_thread": """Hi Lance,
+    "email_thread": """Hi Catherine,
 
 It's time for our quarterly planning session. I'd like to schedule a 90-minute meeting next week to discuss our roadmap for Q3.
 
@@ -187,7 +187,7 @@ Team Lead""",
 
 email_input_11 = {
     "author": "AWS Monitoring <no-reply@aws.amazon.com>",
-    "to": "Lance Martin <lance@company.com>",
+    "to": "Catherine Qiao <catherine@company.com>",
     "subject": "System admin alert: Instance CPU utilization exceeds threshold",
     "email_thread": """ALERT: High CPU Utilization
 
@@ -203,9 +203,9 @@ This message is automatically generated. Please do not reply.
 
 email_input_12 = {
     "author": "Client Success <success@vendor.com>",
-    "to": "Lance Martin <lance@company.com>",
+    "to": "Catherine Qiao <catherine@company.com>",
     "subject": "Your subscription will renew automatically",
-    "email_thread": """Hello Lance,
+    "email_thread": """Hello Catherine,
 
 This is a friendly reminder that your annual subscription to our Developer Pro plan will automatically renew on 04/15/2025.
 
@@ -220,9 +220,9 @@ Client Success Team""",
 
 email_input_13 = {
     "author": "Dr. Roberts <droberts@medical.org>",
-    "to": "Lance Martin <lance@company.com>",
+    "to": "Catherine Qiao <catherine@company.com>",
     "subject": "Annual checkup reminder",
-    "email_thread": """Hello Lance,
+    "email_thread": """Hello Catherine,
 
 This is a reminder that it's time for your annual checkup. Our records show that your last visit was approximately one year ago.
 
@@ -234,9 +234,9 @@ Dr. Roberts' Office""",
 
 email_input_14 = {
     "author": "Social Media Platform <notifications@social.com>",
-    "to": "Lance Martin <lance@company.com>",
+    "to": "Catherine Qiao <catherine@company.com>",
     "subject": "5 people liked your post",
-    "email_thread": """Hi Lance,
+    "email_thread": """Hi Catherine,
 
 5 people liked your recent post about "Machine Learning Techniques for NLP"
 
@@ -250,9 +250,9 @@ To unsubscribe from these notifications, adjust your settings here.
 
 email_input_15 = {
     "author": "Project Team <project@company.com>",
-    "to": "Lance Martin <lance@company.com>",
+    "to": "Catherine Qiao <catherine@company.com>",
     "subject": "Joint presentation next month",
-    "email_thread": """Hi Lance,
+    "email_thread": """Hi Catherine,
 
 The leadership team has asked us to prepare a joint presentation on our recent project successes for the all-hands meeting next month.
 
@@ -266,9 +266,9 @@ Project Team""",
 
 email_input_16 = {
     "author": "Marketing Team <marketing@openai.com>",
-    "to": "Lance Martin <lance@company.com>",
+    "to": "Catherine Qiao <catherine@company.com>",
     "subject": "Newsletter: New Model from OpenAI",
-    "email_thread": """Hi Lance,
+    "email_thread": """Hi Catherine,
 
 We're excited to announce that we've released a new model from OpenAI!
 
